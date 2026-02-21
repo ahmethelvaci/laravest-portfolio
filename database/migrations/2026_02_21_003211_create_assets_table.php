@@ -13,8 +13,8 @@ return new class extends Migration {
         Schema::create('assets', function (Blueprint $table) {
             $table->id();
             $table->enum('type', ['GOLD', 'FUND']);
-            $table->string('code');
-            $table->string('name')->nullable();
+            $table->string('code')->nullable(); // TEFAS code
+            $table->string('name');
             $table->timestamps();
         });
     }

@@ -19,4 +19,9 @@ class Asset extends Model
     {
         return $this->hasMany(DailyPrice::class);
     }
+
+    public function latestDailyPrice()
+    {
+        return $this->hasOne(DailyPrice::class)->latestOfMany('date');
+    }
 }
