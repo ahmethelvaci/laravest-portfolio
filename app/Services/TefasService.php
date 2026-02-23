@@ -44,6 +44,8 @@ class TefasService
 
         $response = Http::withHeaders([
             'X-API-KEY' => $apiKey,
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
         ])->get('http://tefas.res.ahmethelvaci.com/api/daily-stats');
 
         if ($response->successful()) {
