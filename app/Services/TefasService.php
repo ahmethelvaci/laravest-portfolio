@@ -23,7 +23,7 @@ class TefasService
             'X-API-KEY' => $apiKey,
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
-        ])->post('http://tefas.res.ahmethelvaci.com/api/funds', [
+        ])->post('https://tefas.res.ahmethelvaci.com/api/funds', [
             'code' => $code,
             'name' => $name
         ]);
@@ -46,7 +46,7 @@ class TefasService
             'X-API-KEY' => $apiKey,
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
-        ])->get('http://tefas.res.ahmethelvaci.com/api/daily-stats');
+        ])->get('https://tefas.res.ahmethelvaci.com/api/daily-stats');
 
         if ($response->successful()) {
             $data = $response->json();
