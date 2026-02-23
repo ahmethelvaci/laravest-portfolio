@@ -25,7 +25,7 @@ class PortfolioService
             $asset = Asset::firstWhere('code', $code);
             if (!$asset) {
                 // Register to external API
-                $this->tefasService->registerFund($code);
+                $this->tefasService->registerFund($code, $name);
 
                 $asset = Asset::create([
                     'type' => 'FUND',
