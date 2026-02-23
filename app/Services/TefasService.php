@@ -13,7 +13,7 @@ class TefasService
     /**
      * Post a new fund to TEFAS tracking API
      */
-    public function registerFund(string $code)
+    public function registerFund(string $code, string $name)
     {
         $apiKey = config('services.tefas.key');
         if (empty($apiKey))
@@ -21,8 +21,11 @@ class TefasService
 
         $response = Http::withHeaders([
             'X-API-KEY' => $apiKey,
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
         ])->post('http://tefas.res.ahmethelvaci.com/api/funds', [
-            'code' => $code
+            'code' => $code,
+            'name' => $name
         ]);
 
         return $response->successful();
