@@ -49,7 +49,8 @@ class TefasService
         ])->get('https://tefas.res.ahmethelvaci.com/api/daily-stats');
 
         if ($response->successful()) {
-            $data = $response->json();
+            $json = $response->json();
+            $data = $json['data'];
 
             if (!is_array($data))
                 return;
